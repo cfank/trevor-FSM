@@ -1,7 +1,7 @@
 import State from './State';
 
 
-class DivideByThreeAutomata {
+class Automata {
     states: State[];
     initialState: State;
     finalStates: State[];
@@ -20,6 +20,7 @@ class DivideByThreeAutomata {
         return this.states.find((state) => state.name === name);
     }
 
+    // Verify input against allowed alphabet, and transition to next state if it exists
     transitionState(input: string) {
         if (this.inputAlphabet.includes(input)) {
             const nextStateName = this.currentState.transition(input);
@@ -34,12 +35,13 @@ class DivideByThreeAutomata {
         }
     }
 
+    // Process entire input string
     run = (input: string) => {
         for (let i of input) {
             try {
                 this.transitionState(i);
             } catch (e) {
-                return `Error transitioning states: ${e}`;
+                return `Error while transitioning states: ${e}`;
             }
         }
         if (this.finalStates.map((s) => s.name).includes(this.currentState.name)) {
@@ -50,4 +52,4 @@ class DivideByThreeAutomata {
     }
 }
 
-export default DivideByThreeAutomata;
+export default Automata;

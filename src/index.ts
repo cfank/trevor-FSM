@@ -2,6 +2,7 @@ import State from './classes/State';
 import Automata from './classes/Automata';
 import * as data from './transitions.json';
 
+// Read transitions file and create State Array and Automata
 const buildStates = (data): State[] => {
     const states = [];
     if (data.transitions) {
@@ -17,6 +18,7 @@ const buildStates = (data): State[] => {
     return states;
 }
 
+// Iterate and step through input string using Automata
 const run = (input: string) => {
     const states = buildStates(data);
     if (states.length) {

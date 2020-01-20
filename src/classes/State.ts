@@ -11,7 +11,8 @@ class State {
         this.output = output;
         this.transitions = transitions;
     }
-
+    
+    // Returns state name that given input would transition to
     transition = (input: string): string => {
         if (this.transitions && this.transitions[input]) {
             return this.transitions[input];
