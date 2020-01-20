@@ -1,0 +1,26 @@
+{ 
+    "transitions": {
+        "s0": {
+            "output": 0,
+            "transitions": {
+                "0": "s0",
+                "1": "s1"
+            }
+        },
+        "s1": {
+            "output": 1,
+            "transitions": {
+                "0": "s2",
+                "1": "s0"
+            }
+        },
+        "s2": {
+            "output": 2,
+            "transitions": {
+                "0": "s1",
+                "1": "s2"
+            }
+        }
+    },
+    "inputAlphabet": ["0", "1"]
+}
